@@ -2,7 +2,6 @@ import React from "react";
 
 export const Home = () => {
     const userLogged = { user: localStorage.getItem("user") };
-    console.log("user en open", userLogged);
 
     const openDoor = () => {
         fetch("http://ghoptest.ddns.net:2028/open", {
@@ -13,8 +12,7 @@ export const Home = () => {
                 Accept: "application/json",
             },
         }).then((res) => {
-            console.log(res);
-            if (res.ok && localStorage.getItem("user") == "frontend") {
+            if (res.ok && localStorage.getItem("logged")) {
                 alert("¡Puerta Abierta!");
             } else {
                 alert("Error try again");

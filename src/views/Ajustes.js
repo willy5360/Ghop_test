@@ -3,19 +3,20 @@ import { useNavigate } from "react-router-dom";
 
 export const Ajustes = () => {
     const navigate = useNavigate();
-
-    const [isNotLogged, setIsNotLogged] = useState(true);
+    const [isLoggedOut, setIsLoggedOut] = useState(true);
 
     const logOut = () => {
         localStorage.removeItem("user");
-        setIsNotLogged(!isNotLogged);
+        localStorage.removeItem("logged");
+        setIsLoggedOut(!isLoggedOut);
     };
 
     useEffect(() => {
-        if (!isNotLogged) {
+        if (!isLoggedOut) {
             navigate("/login");
+            alert("Sesion Cerrada");
         }
-    }, [isNotLogged]);
+    }, [isLoggedOut]);
 
     return (
         <div className="View">

@@ -20,7 +20,7 @@ export const Login = () => {
                 if (res.ok) {
                     localStorage.setItem("user", data.user);
                     setIslogged(!isLogged);
-                    console.log("loggeado!!!");
+                    localStorage.setItem("logged", !isLogged);
                 }
                 throw new Error("Can not Login");
             })
@@ -28,7 +28,7 @@ export const Login = () => {
     };
 
     useEffect(() => {
-        if (localStorage.getItem("user") === "frontend" && isLogged) {
+        if (isLogged) {
             navigate("/home");
         }
     }, [isLogged]);
@@ -38,10 +38,7 @@ export const Login = () => {
         formState: { errors },
         handleSubmit,
     } = useForm();
-    const onSubmit = (data) => {
-        console.log(data);
-        singIn(data);
-    };
+    const onSubmit = (data) => singIn(data);
 
     return (
         <form className="myform" onSubmit={handleSubmit(onSubmit)}>
