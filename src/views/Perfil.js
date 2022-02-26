@@ -3,9 +3,12 @@ import React from "react";
 export const Perfil = () => {
     return (
         <div className="View">
-            <h1 className="bg-success w-100 text-center">
-                {localStorage.getItem("user")}
-            </h1>
+            <div className="welcome">
+                <h1>Bienvenido</h1>
+                <h2 className=" w-100 text-center">
+                    {localStorage.getItem("user")}
+                </h2>
+            </div>
         </div>
     );
 };

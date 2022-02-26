@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from "react";
 import { useForm } from "react-hook-form";
-import { useNavigate } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 
 export const Login = () => {
     const navigate = useNavigate();
@@ -41,31 +41,48 @@ export const Login = () => {
     const onSubmit = (data) => singIn(data);
 
     return (
-        <form className="myform" onSubmit={handleSubmit(onSubmit)}>
-            <label className="form-label" htmlFor="user">
-                Usuario:
-            </label>
-            {errors.user?.type === "required" && "Nombre de usuario requerido"}
-            <input
-                type="text"
-                id="user"
-                name="user"
-                className="form-control"
-                {...register("user", { required: true })}
-            />
-            <label className="form-label" htmlFor="password">
-                Contraseña:
-            </label>
-            {errors.password?.type === "required" && "Contraseña requerida"}
-            <input
-                type="text"
-                id="password"
-                name="password"
-                className="form-control"
-                {...register("password", { required: true })}
-            />
+        <>
+            <section className="container">
+                <Link className="go_back" to="/">
+                    <i className="fa-solid fa-arrow-left"></i>
+                </Link>
 
-            <input className="btn btn-primary" type="submit" />
-        </form>
+                <div className="row">
+                    <div className="col-md-12">
+                        <h1>Login</h1>
+                        <p>Por favor inicie sesión para continuar</p>
+                    </div>
+                </div>
+
+                <form className="myform" onSubmit={handleSubmit(onSubmit)}>
+                    <label className="form-label" htmlFor="user"></label>
+                    <input
+                        type="text"
+                        id="user"
+                        name="user"
+                        className="form-control"
+                        placeholder="Usuario"
+                        {...register("user", { required: true })}
+                    />
+                    {errors.user?.type === "required" && (
+                        <p>Nombre de usuario requerido</p>
+                    )}
+                    <label className="form-label" htmlFor="password"></label>
+                    <input
+                        type="password"
+                        id="password"
+                        name="password"
+                        className="form-control"
+                        placeholder="Contraseña"
+                        {...register("password", { required: true })}
+                    />
+                    {errors.password?.type === "required" && (
+                        <p>Contraseña requerida</p>
+                    )}
+
+                    <input id="btn-grad" value="Log in" type="submit" />
+                </form>
+            </section>
+        </>
     );
 };

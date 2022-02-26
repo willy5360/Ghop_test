@@ -1,3 +1,5 @@
+@import url("https://fonts.googleapis.com/css2?family=Hind:wght@600&display=swap");
+
 body {
     height: 100vh;
 }
@@ -5,28 +7,113 @@ body {
     height: 100vh;
 }
 
+#wave {
+    transform: rotate(180deg);
+    transition: 0.3s;
+}
+#wave path {
+    transform: translate(0, 50px);
+    opacity: 0.9;
+}
+
 .View {
     display: flex;
     justify-content: center;
-    height: 90%;
+    height: 60%;
     align-items: center;
+}
+
+.welcome {
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+}
+
+.container {
+    height: 60%;
+    position: relative;
 }
 .myform {
     padding: 1rem;
+    height: 80%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
 }
 .myform input {
-    margin: 0.5rem;
+    margin: 1rem;
+    padding: 0.5rem 1rem;
+    border: none;
+    border-radius: 1rem;
+    box-shadow: rgba(50, 50, 93, 0.25) 0px 6px 12px -2px,
+        rgba(0, 0, 0, 0.3) 0px 3px 7px -3px;
+    background-color: white;
+}
+.myform img {
+    position: absolute;
+    z-index: -1;
+    left: -10%;
+    width: 15rem;
+    height: auto;
+}
+
+.myform label {
+    display: none;
+}
+
+.myform p {
+    color: red;
+}
+
+.container h1 {
+    font-family: "Hind", sans-serif;
+    font-size: 3rem;
+    margin-left: 1rem;
+    margin-top: 2rem;
+    opacity: 0.75;
+}
+.container p {
+    font-family: "Hind", sans-serif;
+
+    margin-left: 1rem;
+
+    opacity: 0.5;
 }
 
 .MainHome {
-    height: 100%;
+    height: 60%;
     display: flex;
     flex-direction: column;
     justify-content: space-around;
+    text-align: center;
+    font-family: "Hind", sans-serif;
+}
+.MainHome img {
+    width: 15rem;
+    height: auto;
+    align-self: center;
+    margin: 2rem 0;
+}
+
+.MainHome a {
+    width: 50%;
+    align-self: center;
+}
+.MainHome p {
+    opacity: 0.5;
+    padding: 0;
+    margin-top: -1rem;
 }
 .Homebar {
+    background-image: linear-gradient(
+        to right,
+        rgba(243, 106, 62, 1) 0%,
+        rgba(255, 179, 11, 1) 100%
+    );
     color: white;
     display: flex;
+    padding: 0.6rem 0;
 }
 
 ul {
@@ -45,4 +132,64 @@ li a {
     display: flex;
     align-items: center;
     height: 100%;
+}
+
+#btn-grad {
+    background-image: linear-gradient(
+        to right,
+        #eb3349 0%,
+        #f45c43 51%,
+        #eb3349 100%
+    );
+}
+#btn-grad {
+    align-self: flex-end;
+    text-decoration: none;
+    padding: 0.5rem 2rem;
+    text-align: center;
+    text-transform: uppercase;
+    transition: 0.5s;
+    background-size: 200% auto;
+    color: white;
+    box-shadow: 0 0 20px #eee;
+    border-radius: 10px;
+    display: block;
+    border: none;
+}
+
+#btn-grad:hover {
+    background-position: right center; /* change the direction of the change here */
+    color: #fff;
+    text-decoration: none;
+}
+
+.go_back {
+    width: 3rem;
+    height: 3rem;
+
+    margin-left: 1rem;
+
+    background-image: linear-gradient(
+        to right,
+        #eb3349 0%,
+        #f45c43 51%,
+        #eb3349 100%
+    );
+
+    text-decoration: none;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    border-radius: 50%;
+    transition: 0.5s;
+    background-size: 200% auto;
+    color: white;
+    box-shadow: 0 0 20px #eee;
+}
+
+.go_back:hover {
+    background-position: right center; /* change the direction of the change here */
+    color: #fff;
+    text-decoration: none;
 }
